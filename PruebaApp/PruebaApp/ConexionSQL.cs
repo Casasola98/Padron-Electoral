@@ -86,7 +86,7 @@ namespace PruebaApp
             filas = ExecuteCommand(expresion, ref columnas);
         }
 
-        public string ActualizarPersona(String cedula, String Nombre, String Apellido1, String Apellido2,
+        public void ActualizarPersona(String cedula, String Nombre, String Apellido1, String Apellido2,
           String IdProvicia, String IdCanton, String IdDistrito, String Sexo, String FechaCaducidad, string Junta)
         {
             string statement = string.Format("SELECT D.IDPROVINCIA, D.IDCANTON, D.IDDISTRITO " +
@@ -109,7 +109,7 @@ namespace PruebaApp
             }
             catch(Exception ex)
             {
-                return statement;
+                throw ex;
             }
 
             SqlConnection cn = new SqlConnection(ConnectionString);
@@ -127,7 +127,7 @@ namespace PruebaApp
                 cm.Connection = cn;
                 cm.CommandTimeout = 0;
                 cm.ExecuteNonQuery();
-                return "ok";
+                
             }
             catch (Exception ex)
             {

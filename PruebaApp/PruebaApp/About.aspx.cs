@@ -79,10 +79,10 @@ namespace PruebaApp
                 sexo = "1";
             else
                 sexo = "2";
-            //fecha = TEX
+            fecha = TextBoxCaducidad.Text.ToString();
             junta = "0";
 
-            TextBoxNombre.Text = sql.ActualizarPersona(TextBoxAbout.Text.ToString(), nombre, ap1, ap2, prov, can, dis, sexo, "20191212", junta);
+            sql.ActualizarPersona(TextBoxAbout.Text.ToString(), nombre, ap1, ap2, prov, can, dis, sexo, fecha, junta);
 
             
         }
@@ -113,6 +113,7 @@ namespace PruebaApp
                 TextBoxNombre.Text = nombre;
                 TextBoxAp1.Text = ap1;
                 TextBoxAp2.Text = ap2;
+                TextBoxCaducidad.Text = fecha;
 
                 DropDownListProvincia.Items.Clear();
                 DropDownListCanton.Items.Clear();
